@@ -3,7 +3,7 @@ import { Button } from "./components/ui/button";
 
 export default function App() {
   return (
-    <header>
+    <header className="">
       <SignedOut>
           <SignInButton>
             <Button>Sign in</Button>
