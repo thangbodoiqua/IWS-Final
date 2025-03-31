@@ -1,8 +1,9 @@
 import { Router } from 'express';
+import { protectRoute } from '../middleware/auth.middleware';
 
 const router = Router();
 
-router.get('/', (req, res) => {
+router.get('/like', (req, res) => {
     res.send('User route with get method')
 })
 
