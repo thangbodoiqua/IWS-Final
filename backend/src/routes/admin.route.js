@@ -6,7 +6,6 @@ import  cloudinary  from '../lib/cloudinary.js';
 
 const router = Router();
 router.use(protectRoute, requireAdmin);
-
 const uploadToCloudinary = async (file) => {
     try {
         const result = await cloudinary.uploader.upload(file.tempFilePath, {
@@ -107,7 +106,7 @@ async function deleteAlbum(req, res, next) {
 }
 
 async function checkAdmin(req, res, next) {
-    res.status(200).json({admin: true})
+    res.status(200).json({admin})
 }
 
 router.get('/check', checkAdmin)

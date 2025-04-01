@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './lib/db.js';
-import {clerkMiddleware} from '@clerk/express'
+import { clerkMiddleware } from '@clerk/express'
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import admindRoutes from './routes/admin.route.js';
@@ -16,6 +16,7 @@ const app = express();
 const __dirname = path.resolve();
 const PORT = process.env.PORT;
 app.use(clerkMiddleware());
+
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: path.join(__dirname, 'tmp'),
