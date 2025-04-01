@@ -3,7 +3,7 @@ import { User } from '../model/user.model.js';
 
 const router = Router();
 
-router.get('/callback', async (req, res) => {
+router.get('/callback', async (req, res, next) => {
     try{
         const {id, firstName, lastName, imageUrl} = req.body
         const user = await User.findOne({clerkId: id});
@@ -19,7 +19,7 @@ router.get('/callback', async (req, res) => {
         
     }catch (error){
         console.log(`Error in auth callback: ${error}`);
-        res.status(500).json({message: `Internal server error ${error}`})
+        next(error);
     }
 })
 
