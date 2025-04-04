@@ -26,6 +26,7 @@ async function getAllAlbumById(req, res, next) {
         next(error);
     }
 }
+
 router.get('/', getAllAlbums);
 router.get('/:id', getAllAlbumById);
 
